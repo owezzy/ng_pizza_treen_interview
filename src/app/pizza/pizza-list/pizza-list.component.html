@@ -1,0 +1,31 @@
+<h3 mat-subheader fxLayoutAlign="center">Pizza List Table</h3>
+<!-- #!R - when creating the local variables, PLEASE use a semantically correct name (I have corrected that this time). 'pizzas' is not an appropriate name for a single 'pizza', and it is confusing for someone new to your code, as 'pizzas' is also the name you have for your list.  -->
+
+<!-- #!R Your table theming is all very well, but it is rather inflexible for this sort of data. View your site on an iPhone SE, for instance, and it doesn't look very pretty at all. -->
+
+<div class="content" fxLayoutAlign="center">
+  <table mat-table class="mat-elevation-z8" [dataSource]="pizzas.data">
+  <!-- Name Column -->
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let pizza "> {{pizza.attributes.name}} </td>
+  </ng-container>
+
+  <!-- Description Column -->
+  <ng-container matColumnDef="Description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let pizza "> {{pizza.attributes.description}} </td>
+  </ng-container>
+
+  <!-- Toppings Column -->
+  <ng-container matColumnDef="Toppings">
+  <th mat-header-cell *matHeaderCellDef> Toppings </th>
+  <td mat-cell *matCellDef="let pizza "> {{pizza.attributes.toppings.join(', ')}} </td>
+</ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let pizzas; columns: displayedColumns;"></tr>
+
+</table>
+
+</div>

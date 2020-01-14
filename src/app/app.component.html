@@ -1,0 +1,14 @@
+<div class="app-container">
+<mat-toolbar color="primary">
+  <mat-icon>local_pizza</mat-icon>
+  <button mat-button
+          [routerLink]="['/welcome']"
+          routerLinkActive="active">Home</button>
+  <button mat-button
+          [routerLink]="['/pizzas']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact : true }">Pizza List</button>
+
+</mat-toolbar>
+<router-outlet></router-outlet>
+</div>
